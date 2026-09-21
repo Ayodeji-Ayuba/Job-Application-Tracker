@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from routers.auth import router as auth_router
+from routers.jobs import router as jobs_router
 
 load_dotenv()
 
@@ -11,6 +12,7 @@ app = FastAPI(
 )
 
 app.include_router(auth_router)
+app.include_router(jobs_router)
 
 @app.get("/health")
 def health_check():
