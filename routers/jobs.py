@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, HTTPException
 
 from models.models import JobApplication, User
 from schemas.schemas import ApplicationCreate, ApplicationResponse

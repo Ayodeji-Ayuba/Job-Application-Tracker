@@ -37,8 +37,8 @@ class JobApplication(Base):
     date_applied = Column(DateTime)
     notes = Column(Text)
 
-    created_at = Column(DateTime, server_default=func.now())
-    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    created_at = Column(DateTime, default=func.now())
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 
 
 Base.metadata.create_all(bind=engine)
