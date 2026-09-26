@@ -11,7 +11,6 @@ from models.models import Base
 from utils.auth import get_db
 from main import app
 
-
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
@@ -22,7 +21,8 @@ TestingSessionLocal = sessionmaker(
     bind=engine
 )
 
-
+# Drop all tables and recreate them before each test session
+Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
 
 
