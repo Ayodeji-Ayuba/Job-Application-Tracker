@@ -40,3 +40,23 @@ app.dependency_overrides[get_db] = override_get_db
 @pytest.fixture
 def client():
     return TestClient(app)
+
+@pytest.fixture
+def auth_token(client):
+    client.post(
+        "/auth/register",
+        json={
+            "email": "pytest_jobs_001@example.com",
+            "password": "password123"
+        }
+    )
+
+    response = client.post(
+        "/auth/login",
+        json={
+            "email": "pytest_jobs_001@example.com",
+            "password": "password123"
+        }
+    )
+
+    return response.json()["access_token"]
