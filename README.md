@@ -142,3 +142,4 @@ Job-Application-Tracker/
 ## Author
 
 **Ayodeji** — [GitHub](https://github.com/Ayodeji-Ayuba)
+**#AyodeejiOut**
